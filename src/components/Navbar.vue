@@ -3,8 +3,6 @@
   <nav class="navbar">
     <ul>
       <li><RouterLink to="/">Inicio</RouterLink></li>
-      <li><RouterLink to="/cuadrado">Cuadrado</RouterLink></li>
-      <li><RouterLink to="/producto">Producto</RouterLink></li>
       <li><RouterLink to="/lineal">Lineal</RouterLink></li>
       <li><RouterLink to="/multiplicativo">Multiplicativo</RouterLink></li>
     </ul>
