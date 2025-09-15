@@ -1,7 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+main {
+  padding: 0 !important;
+}
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
 /* Estilo personalizado después de Tailwind */
 body {
   font-family: 'Arial', sans-serif;

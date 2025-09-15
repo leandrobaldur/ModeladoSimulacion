@@ -15,15 +15,15 @@
         </div>
         <div class="input-group">
           <label class="input-label">C</label>
-          <input v-model.number="c" type="number" placeholder="Constante" class="input-field" />
+          <input v-model.number="c" type="number" placeholder="Primo relativo a m" class="input-field" />
         </div>
         <div class="input-group">
           <label class="input-label">P</label>
-          <input v-model.number="p" type="number" placeholder="Potencia de 2" class="input-field" />
+          <input v-model.number="p" type="number" placeholder="Periodo" class="input-field" />
         </div>
         <div class="input-group">
-          <label class="input-label">D (iter.)</label>
-          <input v-model.number="d" type="number" placeholder="Número de iteraciones" class="input-field" />
+          <label class="input-label">D (decimales)</label>
+          <input v-model.number="d" type="number" placeholder="Número de decimales" class="input-field" />
         </div>
         <div class="button-group">
           <button @click="generar" class="button button-primary">Generar</button>
@@ -35,7 +35,7 @@
         <div class="info-content">
           <span><span class="font-bold">a:</span> {{ parametros.a }}</span>
           <span><span class="font-bold">c:</span> {{ parametros.c }}</span>
-          <span><span class="font-bold">g:</span> {{ parametros.g }}</span>
+          <span><span class="font-bold">g:</span> {{ parametros.g.toFixed(2) }}</span>
           <span><span class="font-bold">m:</span> {{ parametros.m }}</span>
         </div>
       </div>
@@ -57,7 +57,7 @@
               <td>{{ fila.x_prev }}</td>
               <td class="operation-cell">{{ fila.operacion }}</td>
               <td>{{ fila.xi }}</td>
-              <td>{{ fila.ri.toFixed(4) }}</td>
+              <td>{{ fila.ri }}</td>
             </tr>
           </tbody>
         </table>
@@ -70,7 +70,7 @@
 import { ref } from "vue";
 
 type Parametros = { a: number; c: number; g: number; m: number };
-type Fila = { i: number; x_prev: number; operacion: string; xi: number; ri: number };
+type Fila = { i: number; x_prev: number; operacion: string; xi: number; ri: string };
 
 const x0 = ref<number>(2);
 const k = ref<number>(3);
@@ -85,25 +85,38 @@ function generar(): void {
   resultados.value = [];
 
   if (!Number.isInteger(d.value) || d.value <= 0) {
-    alert("D debe ser un entero positivo (número de iteraciones).");
+    alert("D debe ser un entero positivo (número de decimales).");
     return;
   }
   if (!Number.isInteger(p.value) || p.value <= 0) {
     alert("P debe ser un entero positivo.");
     return;
   }
+  if (x0.value < 0) {
+    alert("X₀ no puede ser un número negativo.");
+    return;
+  }
+  if (k.value < 0) {
+    alert("K no puede ser un número negativo.");
+    return;
+  }
+  if (c.value < 0) {
+    alert("C no puede ser un número negativo.");
+    return;
+  }
 
   const a = 1 + 4 * k.value;
-  const m = Math.pow(2, p.value);
-  const g = k.value;
+  const pValue = p.value;
+  const g = Math.log(pValue) / Math.log(2);
+  const m = Math.pow(2, g);
 
   parametros.value = { a, c: c.value, g, m };
 
   let xi_prev = x0.value;
 
-  for (let i = 1; i <= d.value; i++) {
+  for (let i = 1; i <= p.value+1; i++) {
     const xi = (a * xi_prev + c.value) % m;
-    const ri = xi / m;
+    const ri = (xi / m).toFixed(d.value); 
     const operacion = `(${a} * ${xi_prev} + ${c.value}) MOD ${m}`;
 
     resultados.value.push({ i, x_prev: xi_prev, operacion, xi, ri });
@@ -119,10 +132,16 @@ function limpiar(): void {
 </script>
 
 <style scoped>
-/* Contenedor principal para centrar el contenido */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+/* Contenedor principal con fondo negro */
 .main-container {
   min-height: 100vh;
-  background: linear-gradient(to right, #e0f2fe, #eef2ff);
+  max-width: none;
+  background: linear-gradient(to right, #1a1a1a, #0d0d0d);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -133,10 +152,11 @@ function limpiar(): void {
 .content-wrapper {
   width: 100%;
   max-width: 72rem;
-  background-color: white;
+  background-color: #2e2e2e; /* Negro más suave */
   border-radius: 1.5rem;
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  padding: 2.5rem;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+  padding: 1.5rem;
+  color: white; /* Color de texto general */
 }
 
 /* Estilos del título */
@@ -145,7 +165,7 @@ function limpiar(): void {
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
-  color: #2563eb;
+  color: #4caf50; /* Verde vibrante */
 }
 
 /* Grid para los inputs */
@@ -169,18 +189,21 @@ function limpiar(): void {
 .input-label {
   font-weight: 600;
   margin-bottom: 0.25rem;
+  color: #c0c0c0; /* Gris claro para los labels */
 }
 
 .input-field {
   width: 100%;
-  border: 1px solid #d1d5db;
+  border: 1px solid #4a4a4a;
   border-radius: 0.5rem;
   padding: 0.5rem 0.75rem;
   outline: none;
   transition: box-shadow 0.2s;
+  background-color: #333;
+  color: white;
 }
 .input-field:focus {
-  box-shadow: 0 0 0 2px #93c5fd;
+  box-shadow: 0 0 0 2px #4caf50;
 }
 
 /* Grupo de botones */
@@ -201,7 +224,7 @@ function limpiar(): void {
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
   font-weight: 600;
-  color: white;
+  color: black;
   border: none;
   cursor: pointer;
   transition: transform 0.2s;
@@ -211,19 +234,20 @@ function limpiar(): void {
 }
 
 .button-primary {
-  background-color: #3b82f6;
+  background-color: #4caf50; /* Verde primario */
 }
 .button-error {
-  background-color: #ef4444;
+  background-color: #d32f2f; /* Rojo de error, para contraste */
 }
 
 /* Estilos de la alerta de parámetros */
 .info-alert {
-  background-color: #dbeafe;
+  background-color: #388e3c; /* Verde oscuro */
   border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
   padding: 1rem;
+  color: white;
 }
 
 .info-content {
@@ -244,9 +268,9 @@ function limpiar(): void {
 
 /* Estilos de la tabla */
 .table-container {
-  overflow-x: auto; /* Corrección aquí */
+  overflow-x: auto;
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.1);
 }
 
 .data-table {
@@ -256,7 +280,7 @@ function limpiar(): void {
 }
 
 .table-header {
-  background-color: #2563eb;
+  background-color: #4caf50; /* Encabezado de la tabla verde */
   color: white;
 }
 .table-header th {
@@ -267,10 +291,14 @@ function limpiar(): void {
   transition: background-color 0.2s;
 }
 .table-row:nth-child(even) {
-  background-color: #f3f4f6;
+  background-color: #4a4a4a; /* Filas pares con gris oscuro */
+}
+.table-row:nth-child(odd) {
+  background-color: #333333; /* Filas impares con negro */
 }
 .table-row:hover {
-  background-color: #eff6ff;
+  background-color: #66bb6a; /* Resaltado verde al pasar el mouse */
+  color: black;
 }
 .table-row td {
   padding: 0.75rem 0.75rem;
