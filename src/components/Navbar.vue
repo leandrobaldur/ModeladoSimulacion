@@ -5,6 +5,7 @@
       <li><RouterLink to="/">Inicio</RouterLink></li>
       <li><RouterLink to="/lineal">Lineal</RouterLink></li>
       <li><RouterLink to="/multiplicativo">Multiplicativo</RouterLink></li>
+      <li><RouterLink to="/simulaciones">Simulaciones</RouterLink></li>
     </ul>
   </nav>
 </template>

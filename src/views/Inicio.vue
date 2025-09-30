@@ -2,102 +2,182 @@
 <template>
   <div class="main-container">
     <div class="content-wrapper">
-      <h1 class="title">Alumno: Leandro Colque Palacios</h1>
+      <h1 class="title">Modelado y Simulación de Sistemas</h1>
       
-      <div class="info-alert">
-        <h2 class="section-title">Modelado y Simulación</h2>
+      <div class="header-info">
+        <h2 class="section-title">Generación de Números Pseudoaleatorios y Aplicaciones</h2>
         <p class="section-text">
-          Este proyecto simula algoritmos para generar números pseudoaleatorios, una herramienta clave en el modelado de sistemas complejos.
+          Este proyecto explora la generación de números pseudoaleatorios mediante métodos congruenciales y su aplicación en simulaciones financieras y operacionales.
         </p>
       </div>
 
-      <div class="button-container">
-        <router-link to="/lineal" class="button button-primary">
-          Ir a Algoritmo Lineal
+      <div class="simulations-grid">
+        
+        <router-link to="/lineal" class="simulation-card lineal-theme">
+          <div class="icon-container">
+            <span class="material-icons">straighten</span>
+          </div>
+          <h3 class="card-title">Congruencial Lineal</h3>
+          <p class="card-description">Implementación del generador lineal y análisis de periodos.</p>
         </router-link>
+
+        <router-link to="/multiplicativo" class="simulation-card mult-theme">
+          <div class="icon-container">
+            <span class="material-icons">scatter_plot</span>
+          </div>
+          <h3 class="card-title">Congruencial Multiplicativo</h3>
+          <p class="card-description">Generador enfocado en el factor multiplicativo.</p>
+        </router-link>
+
+        <router-link to="/simulaciones" class="simulation-card app-theme">
+          <div class="icon-container">
+            <span class="material-icons">trending_up</span>
+          </div>
+          <h3 class="card-title">Simulaciones (DPF, Tienda, Dados)</h3>
+          <p class="card-description">Aplicaciones prácticas de los números aleatorios en finanzas y negocios.</p>
+        </router-link>
+
       </div>
+      
+      <p class="footer-text">
+        Alumno: Leandro Colque Palacios
+      </p>
+
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-
 // Script mínimo para un componente de Vue.
 </script>
 
 <style scoped>
-/* Contenedor principal para centrar el contenido */
+
+.simulations-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
+  gap: 2rem; 
+  margin-top: 4rem;
+  margin-bottom: 3rem;
+}
+
+@media (min-width: 768px) {
+  .simulations-grid {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en desktop */
+  }
+}
+
+.simulation-card {
+  /* Estilos de la tarjeta base */
+  background-color: #3e3e3e; 
+  border-radius: 1.5rem; /* Bordes más redondeados */
+  padding: 2rem;
+  text-decoration: none;
+  color: white; 
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out, background-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.simulation-card:hover {
+  transform: translateY(-8px) scale(1.05); /* Efecto de "levantar" y crecer más marcado */
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+  color: black;
+}
+
+/* Temas de Color para cada tarjeta */
+.lineal-theme:hover { background-color: #00bcd4; } /* Cyan */
+.mult-theme:hover { background-color: #ffc107; } /* Ambar/Amarillo */
+.app-theme:hover { background-color: #4caf50; }  /* Verde */
+
+/* Estilos de Íconos */
+.icon-container {
+  font-size: 4rem; 
+  margin-bottom: 1rem;
+  color: #c0c0c0; /* Gris claro por defecto */
+  transition: color 0.3s ease-in-out;
+}
+
+.simulation-card:hover .icon-container {
+  color: white; /* Icono blanco al pasar el mouse */
+}
+
+/* Estilos de Títulos y Descripciones */
+.card-title {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: white;
+}
+
+.card-description {
+  font-size: 1rem;
+  color: #a0a0a0;
+  line-height: 1.4;
+}
+
+.simulation-card:hover .card-description,
+.simulation-card:hover .card-title {
+    color: black; /* Texto negro al pasar el mouse */
+}
+
 .main-container {
   min-height: 100vh;
   background: linear-gradient(to right, #1a1a1a, #0d0d0d);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem;
+  padding: 2rem;
 }
 
-/* Contenedor principal del formulario y la tabla */
 .content-wrapper {
   width: 100%;
-  max-width: 48rem; /* Tamaño más compacto */
+  max-width: 90rem;
   background-color: #2e2e2e;
-  border-radius: 1.5rem;
+  border-radius: 2rem; /* Más redondeado */
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  padding: 2.5rem;
+  padding: 3rem; /* Más padding */
   color: white;
   text-align: center;
 }
 
-/* Estilos del título */
 .title {
-  font-size: 2.5rem;
-  font-weight: 800;
-  margin-bottom: 2rem;
+  font-size: 3.5rem;
+  font-weight: 900; /* Más peso */
+  margin-bottom: 1rem;
   color: #4caf50;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Ligero brillo */
+}
+
+.header-info {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    background-color: #388e3c33; /* Fondo semitransparente para el info */
+    border-radius: 1rem;
+    border-left: 5px solid #4caf50;
 }
 
 .section-title {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
   font-weight: 700;
   color: #c0c0c0;
   margin-bottom: 0.5rem;
 }
 
 .section-text {
-  font-size: 1rem;
+  font-size: 1.1rem;
   line-height: 1.6;
   color: #a0a0a0;
   margin-bottom: 0;
 }
 
-.info-alert {
-  background-color: #388e3c;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-}
-
-.button-container {
-  margin-top: 3rem;
-}
-
-.button {
-  display: inline-block;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  color: black;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.2s;
-  text-decoration: none;
-}
-.button:hover {
-  transform: scale(1.05);
-}
-
-.button-primary {
-  background-color: #4caf50;
+.footer-text {
+    margin-top: 4rem;
+    font-size: 1rem;
+    color: #616161; /* Gris oscuro para el pie de página */
 }
 </style>
