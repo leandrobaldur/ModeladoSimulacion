@@ -8,7 +8,7 @@
       
       <div class="algorithm-container">
         
-        <h2 class="title">Operaciones de Tienda</h2>
+        <h2 class="title">Tienda</h2>
 
         <div class="info-alert">
           <div class="section-text">

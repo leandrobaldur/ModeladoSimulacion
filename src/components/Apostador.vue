@@ -192,23 +192,23 @@ function limpiarResultados() {
 }
 
 .close-button {
-  position: absolute; /* Posicionamiento absoluto dentro de .content-wrapper */
-  top: 1.5rem; /* Ajustar posición superior */
-  right: 1.5rem; /* Ajustar posición derecha */
+  position: absolute; 
+  top: 1.5rem; 
+  right: 1.5rem; 
   background: none;
   border: none;
-  color: #d10000; /* Gris claro */
+  color: #d10000;
   font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
   padding: 0;
-  line-height: 1; /* Asegura que la X no se desplace */
+  line-height: 1; 
   transition: color 0.2s, transform 0.2s;
-  z-index: 10; /* Asegurar que esté por encima de otros elementos */
+  z-index: 10; 
 }
 
 .close-button:hover {
-  color: #f44336; /* Rojo al pasar el mouse */
+  color: #f44336; 
   transform: scale(1.1);
 }
 

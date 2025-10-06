@@ -112,7 +112,6 @@ function simularDPFCompuesto() {
     
     resultadosAnuales.value = [];
 
-    // lgica de Interés Compuesto Anual
     for (let anio = 1; anio <= tiempoAnios.value; anio++) {
         
         const interesGanado = capitalActual * tasaDecimal;
@@ -148,13 +147,12 @@ function limpiarResultados() {
     resultadosAnuales.value = [];
 }
 
-//simularDPFCompuesto();
 </script>
 
 <style scoped>
 
 .content-wrapper {
-  position: relative; /* Esencial para el posicionamiento absoluto del botón */
+  position: relative; 
   width: 100%;
   max-width: 90rem; 
   background-color: #2e2e2e; 
@@ -165,7 +163,7 @@ function limpiarResultados() {
 }
 
 .close-button {
-  position: absolute; /* Posicionamiento absoluto dentro de .content-wrapper */
+  position: absolute; 
   top: 1.5rem; 
   right: 1.5rem; 
   background: none;

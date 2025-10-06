@@ -119,7 +119,6 @@ function generar(): void {
     a = 5 + 8 * k.value;
   }
 
-  // Nuevo cálculo de g basado en p
   const g = Math.log(p.value) / Math.log(2) + 2;
   const m = Math.pow(2, g);
 
@@ -145,7 +144,6 @@ function limpiar(): void {
 </script>
 
 <style scoped>
-/* Contenedor principal con fondo negro */
 .main-container {
   min-height: 100vh;
   background: linear-gradient(to right, #1a1a1a, #0d0d0d);
@@ -155,7 +153,6 @@ function limpiar(): void {
   padding: 1.5rem;
 }
 
-/* Contenedor principal del formulario y la tabla */
 .content-wrapper {
   width: 100%;
   max-width: 72rem;
@@ -166,7 +163,6 @@ function limpiar(): void {
   color: white;
 }
 
-/* Estilos del título */
 .title {
   font-size: 2.5rem;
   font-weight: 800;
@@ -175,7 +171,6 @@ function limpiar(): void {
   color: #4caf50;
 }
 
-/* Grid para los inputs */
 .input-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -231,7 +226,6 @@ function limpiar(): void {
   accent-color: #4caf50;
 }
 
-/* Grupo de botones */
 .button-group {
   display: flex;
   align-items: flex-end;
@@ -265,7 +259,6 @@ function limpiar(): void {
   background-color: #d32f2f;
 }
 
-/* Estilos de la alerta de parámetros */
 .info-alert {
   background-color: #388e3c;
   border-radius: 0.5rem;
@@ -291,7 +284,6 @@ function limpiar(): void {
   font-weight: 700;
 }
 
-/* Estilos de la tabla */
 .table-container {
   overflow-x: auto;
   border-radius: 0.5rem;

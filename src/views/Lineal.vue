@@ -137,7 +137,7 @@ html, body {
   margin: 0;
   padding: 0;
 }
-/* Contenedor principal con fondo negro */
+
 .main-container {
   min-height: 100vh;
   max-width: none;
@@ -148,27 +148,24 @@ html, body {
   padding: 1.5rem;
 }
 
-/* Contenedor principal del formulario y la tabla */
 .content-wrapper {
   width: 100%;
   max-width: 72rem;
-  background-color: #2e2e2e; /* Negro más suave */
+  background-color: #2e2e2e; 
   border-radius: 1.5rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
   padding: 1.5rem;
-  color: white; /* Color de texto general */
+  color: white; 
 }
 
-/* Estilos del título */
 .title {
   font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
   margin-bottom: 3rem;
-  color: #4caf50; /* Verde vibrante */
+  color: #4caf50; 
 }
 
-/* Grid para los inputs */
 .input-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -189,7 +186,7 @@ html, body {
 .input-label {
   font-weight: 600;
   margin-bottom: 0.25rem;
-  color: #c0c0c0; /* Gris claro para los labels */
+  color: #c0c0c0; 
 }
 
 .input-field {
@@ -206,7 +203,6 @@ html, body {
   box-shadow: 0 0 0 2px #4caf50;
 }
 
-/* Grupo de botones */
 .button-group {
   display: flex;
   align-items: flex-end;
@@ -234,15 +230,14 @@ html, body {
 }
 
 .button-primary {
-  background-color: #4caf50; /* Verde primario */
+  background-color: #4caf50; 
 }
 .button-error {
-  background-color: #d32f2f; /* Rojo de error, para contraste */
+  background-color: #d32f2f; 
 }
 
-/* Estilos de la alerta de parámetros */
 .info-alert {
-  background-color: #388e3c; /* Verde oscuro */
+  background-color: #388e3c; 
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
   margin-bottom: 2rem;
@@ -266,7 +261,6 @@ html, body {
   font-weight: 700;
 }
 
-/* Estilos de la tabla */
 .table-container {
   overflow-x: auto;
   border-radius: 0.5rem;
@@ -280,7 +274,7 @@ html, body {
 }
 
 .table-header {
-  background-color: #4caf50; /* Encabezado de la tabla verde */
+  background-color: #4caf50; 
   color: white;
 }
 .table-header th {
@@ -291,13 +285,13 @@ html, body {
   transition: background-color 0.2s;
 }
 .table-row:nth-child(even) {
-  background-color: #4a4a4a; /* Filas pares con gris oscuro */
+  background-color: #4a4a4a; 
 }
 .table-row:nth-child(odd) {
-  background-color: #333333; /* Filas impares con negro */
+  background-color: #333333; 
 }
 .table-row:hover {
-  background-color: #66bb6a; /* Resaltado verde al pasar el mouse */
+  background-color: #66bb6a; 
   color: black;
 }
 .table-row td {

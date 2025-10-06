@@ -48,7 +48,7 @@
 </template>
 
 <script setup lang="ts">
-// Script mínimo para un componente de Vue.
+
 </script>
 
 <style scoped>
@@ -63,14 +63,13 @@
 
 @media (min-width: 768px) {
   .simulations-grid {
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas en desktop */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
 .simulation-card {
-  /* Estilos de la tarjeta base */
   background-color: #3e3e3e; 
-  border-radius: 1.5rem; /* Bordes más redondeados */
+  border-radius: 1.5rem; 
   padding: 2rem;
   text-decoration: none;
   color: white; 
@@ -84,29 +83,26 @@
 }
 
 .simulation-card:hover {
-  transform: translateY(-8px) scale(1.05); /* Efecto de "levantar" y crecer más marcado */
+  transform: translateY(-8px) scale(1.05); 
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
   color: black;
 }
 
-/* Temas de Color para cada tarjeta */
-.lineal-theme:hover { background-color: #00bcd4; } /* Cyan */
-.mult-theme:hover { background-color: #ffc107; } /* Ambar/Amarillo */
-.app-theme:hover { background-color: #4caf50; }  /* Verde */
+.lineal-theme:hover { background-color: #00bcd4; } 
+.mult-theme:hover { background-color: #ffc107; } 
+.app-theme:hover { background-color: #4caf50; }  
 
-/* Estilos de Íconos */
 .icon-container {
   font-size: 4rem; 
   margin-bottom: 1rem;
-  color: #c0c0c0; /* Gris claro por defecto */
+  color: #c0c0c0; 
   transition: color 0.3s ease-in-out;
 }
 
 .simulation-card:hover .icon-container {
-  color: white; /* Icono blanco al pasar el mouse */
+  color: white; 
 }
 
-/* Estilos de Títulos y Descripciones */
 .card-title {
   font-size: 1.6rem;
   font-weight: 700;
@@ -122,7 +118,7 @@
 
 .simulation-card:hover .card-description,
 .simulation-card:hover .card-title {
-    color: black; /* Texto negro al pasar el mouse */
+    color: black; 
 }
 
 .main-container {
@@ -138,25 +134,25 @@
   width: 100%;
   max-width: 90rem;
   background-color: #2e2e2e;
-  border-radius: 2rem; /* Más redondeado */
+  border-radius: 2rem;
   box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
-  padding: 3rem; /* Más padding */
+  padding: 3rem; 
   color: white;
   text-align: center;
 }
 
 .title {
   font-size: 3.5rem;
-  font-weight: 900; /* Más peso */
+  font-weight: 900;
   margin-bottom: 1rem;
   color: #4caf50;
-  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5); /* Ligero brillo */
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
 }
 
 .header-info {
     margin-bottom: 3rem;
     padding: 1.5rem;
-    background-color: #388e3c33; /* Fondo semitransparente para el info */
+    background-color: #388e3c33; 
     border-radius: 1rem;
     border-left: 5px solid #4caf50;
 }
@@ -178,6 +174,6 @@
 .footer-text {
     margin-top: 4rem;
     font-size: 1rem;
-    color: #616161; /* Gris oscuro para el pie de página */
+    color: #616161; 
 }
 </style>
