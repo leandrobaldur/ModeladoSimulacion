@@ -9,6 +9,8 @@ import Apostador from '../components/Apostador.vue'
 import Tienda from '../components/Tienda.vue'
 import Gallinero from '../components/Gallinero.vue'
 import Azucarero from '../components/Azucarero.vue'
+import DPV from '../components/DPV.vue'
+import Moneda from '../components/Moneda.vue'
 
 const routes = [
   { path: '/', name: 'Inicio', component: Inicio },
@@ -20,6 +22,8 @@ const routes = [
   { path: '/tienda', name: 'Tienda', component: Tienda },
   { path: '/gallinero', name: 'Gallinero', component: Gallinero },
   { path: '/azucarero', name: 'Azucarero', component: Azucarero },
+  { path: '/dpv', name: 'DPV', component: DPV },
+  { path: '/moneda', name: 'Moneda', component: Moneda },
 ]
 
 const router = createRouter({

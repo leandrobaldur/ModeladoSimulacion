@@ -8,17 +8,23 @@
         <RouterLink to="/dpf" class="nav-button">
           DPF
         </RouterLink>
-        <RouterLink to="/apostador" class="nav-button nav-disabled">
+        <RouterLink to="/dpV" class="nav-button nav-disabled">
+          Deposito a Plazo Variable
+        </RouterLink>
+        <RouterLink to="/apostador" class="nav-button ">
           Apostador
         </RouterLink>
-        <RouterLink to="/tienda" class="nav-button ">
+        <RouterLink to="/tienda" class="nav-button nav-disabled">
           Tienda
         </RouterLink>
-        <RouterLink to="/gallinero" class="nav-button nav-disabled">
+        <RouterLink to="/gallinero" class="nav-button ">
           Gallinero
         </RouterLink>
-        <RouterLink to="/azucarero" class="nav-button">
+        <RouterLink to="/azucarero" class="nav-button nav-disabled">
           Azucarero
+        </RouterLink>
+        <RouterLink to="/moneda" class="nav-button">
+          Moneda
         </RouterLink>
       </div>
 
